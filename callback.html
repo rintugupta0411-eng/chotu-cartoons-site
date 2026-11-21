@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign-in callback – Chotu Cartoons</title><link rel="icon" href="logo.png"><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:760px;margin:0 auto;padding:24px;line-height:1.6;color:#1c204e;background:#fffaf0}
+header{display:flex;align-items:center;gap:14px;margin-bottom:12px}header img{width:64px;height:64px;border-radius:14px}
+h1{margin:0;font-size:1.6rem}nav a{margin-right:14px;color:#3a3090}footer{margin-top:40px;font-size:.85rem;color:#666}
+code,.box{background:#fff;border:1px solid #ddd;border-radius:8px;padding:12px;display:block;word-break:break-all;font-family:ui-monospace,monospace}
+button{margin-top:10px;padding:10px 18px;border:0;border-radius:8px;background:#ffc947;font-weight:700;font-size:1rem;cursor:pointer}</style></head><body>
+<header><img src="logo.png" alt="Chotu Cartoons logo"><h1>Chotu Cartoons</h1></header>
+<nav><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="data-deletion.html">Data Deletion</a></nav>
+<main><h2>Sign-in complete</h2>
+<div id="ok" style="display:none"><p>Copy this code and paste it back in the chat:</p><span class="box" id="code"></span><button onclick="copyIt()">Copy code</button><p id="msg"></p></div>
+<div id="err" style="display:none"><p>Something went wrong:</p><span class="box" id="error"></span></div>
+<div id="none"><p>No code was found on this page.</p></div></main><footer>© 2026 Chotu Cartoons. Contact: <a href="mailto:rintugupta0411@gmail.com">rintugupta0411@gmail.com</a></footer><script>
+const p=new URLSearchParams(location.search),c=p.get('code'),e=p.get('error');
+if(c){document.getElementById('none').style.display='none';document.getElementById('ok').style.display='block';document.getElementById('code').textContent=c;}
+else if(e){document.getElementById('none').style.display='none';document.getElementById('err').style.display='block';document.getElementById('error').textContent=e+' '+(p.get('error_description')||'');}
+function copyIt(){navigator.clipboard.writeText(c).then(()=>{document.getElementById('msg').textContent='Copied!'}).catch(()=>{document.getElementById('msg').textContent='Press and hold the code to copy it.'})}
+</script></body></html>
